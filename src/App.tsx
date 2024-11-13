@@ -1,5 +1,5 @@
 import './App.css'
-import Filter from './components/Filter'
+/* import Filter from './components/Filter' */
 import Header from './components/Header'
 import ProductCard from './components/ProductCard'
 

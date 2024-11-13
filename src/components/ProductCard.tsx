@@ -32,8 +32,10 @@ function ProductCard() {
 
                 setProducts(data);
 
-                //Crea un arreglo con las categorías obtenidas de la data obtenida.
-                const uniqueCategories = Array.from(new Set(data.map((product: Products) => product.category)));
+                //Crea un arreglo con las categorías obtenidas del endpoint de categorías.
+                const responseCategories = await fetch("https://fakestoreapi.com/products/categories")
+                const dataCategories = await responseCategories.json();
+                const uniqueCategories = dataCategories;
                 setCategories(['all', ...uniqueCategories]);
             } catch (error) {
                 console.log(error)

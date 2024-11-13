@@ -42,6 +42,11 @@ header nav .first-part ul li {
   font-size: 1.2rem;
 }
 
+header nav .first-part ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
 header nav .buttons-store {
   display: flex;
   column-gap: 30px;
@@ -95,7 +100,7 @@ main .filter-card .filter-items .filter-item input[type="checkbox"] {
 main .main-content .main-products-content {
   display: flex;
   column-gap: 50px;
-  margin: 50px 0;
+  margin: 50px auto;
   justify-content: space-between;
 }
 
