@@ -14,7 +14,7 @@ function App() {
       <h1>Bienvenido a nuestra tienda</h1>
 
       <div className='main-content'>
-        <Filter/>
+        {/* <Filter/> */}
         <ProductCard/>
       </div>
     </main>
