@@ -11,6 +11,20 @@ export type Products = {
     price: number
 }
 
-export type ProductDetail = Omit<Products, 'category' | 'id'> & {
-    description: string
+export type ProductDetail = Products & {
+    description: string,
+    count?: number;
 }
+
+/* export type ProductDetail = {
+    id: number,
+    title: string,
+    image: string,
+    category: string,
+    rating: {
+        rate: number,
+        count?: number
+    },
+    price: number,
+    description: string
+} */

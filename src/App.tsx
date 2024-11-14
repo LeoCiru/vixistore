@@ -1,9 +1,9 @@
 import './App.css'
-import ButtonsCart from './components/ButtonsCart'
 /* import Filter from './components/Filter' */
 import Header from './components/Header'
 import ProductCard from './components/ProductCard'
 import ItemDetail from './pages/ItemDetail'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   
@@ -18,13 +18,12 @@ function App() {
       <div className='main-content'>
         {/* <Filter/> */}
         {/* <ProductCard/> */}
-        <ItemDetail
-          title='Holaa'
-          image='Klk'
-          rating={{rate: 2}}
-          price={300}
-          description='Holaestoesunapruebaaa'
-        />
+        <Router>
+          <Routes>
+          <Route path="/" element={<ProductCard />} />
+          <Route path="/product/:id" element={<ItemDetail />} />
+          </Routes>
+        </Router>
       </div>
     </main>
   )

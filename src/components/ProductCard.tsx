@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { Products } from "../types";
 import { titleCase } from "../helpers";
 import ButtonsCart from "./ButtonsCart";
+import { useNavigate } from 'react-router-dom';
 
 function ProductCard() {
 
@@ -25,6 +26,7 @@ function ProductCard() {
     const productsPerPage = 10;
     // Estado para el ordenamiento
     const [order, setOrder] = useState<string>('desc');
+    const navigate = useNavigate();
 
     //Llamar los datos de los respectivos endpoints y retornar su data.
     useEffect(() => {
@@ -77,6 +79,9 @@ function ProductCard() {
     setCurrentPage(pageNumber);
   };
 
+  const handleClickProduct = (id: string) => {
+    navigate(`/product/${id}`); // Navegar a la ruta de detalles del producto
+  };
 
   return (
     <>
@@ -117,7 +122,11 @@ function ProductCard() {
             {/* Mostrar los productos */}
             <div className="cards-container">
                 {paginatedProducts.map(product => (
-                            <div key={product.id} className="product-card">
+                            <div
+                                key={product.id}
+                                className="product-card"
+                                onClick={() => handleClickProduct(product.id)}
+                            >
                                 <div className="first-card-info">
                                     <h4>{product.title}</h4>
                                 </div>

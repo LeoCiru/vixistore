@@ -1,26 +1,40 @@
-import ButtonsCart from "../components/ButtonsCart"
-import { ProductDetail } from "../types"
+import ButtonsCart from "../components/ButtonsCart";
+import { useParams } from 'react-router-dom';
+import { ProductDetail } from "../types";
+import { useState, useEffect } from "react";
+import { FaStar } from "react-icons/fa";
 
-function ItemDetail({
-    title, 
-    image,
-    rating: {
-        rate
-    },
-    price,
-    description
-}: ProductDetail) {
+function ItemDetail() {
+  const { id } = useParams<{ id: string }>();
+  const [product, setProduct] = useState<ProductDetail | null>(null);
+
+  useEffect(() => {
+    const fetchProducto = async () => {
+      try {
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        const data: ProductDetail = await response.json();
+        setProduct(data);
+      } catch (error) {
+        console.error('Error al obtener el producto:', error);
+      }
+    };
+
+    fetchProducto();
+  }, [id]);
+
+  if (!product) return <div>Cargando producto...</div>;
+  
   return (
-    <div>
-        <div className="image">
-            <img src={image} alt={title} />
+    <div className="product-detail">
+        <div className="product-image">
+            <img src={product.image} alt={product.title} />
         </div>
 
         <div className="content-details">
-            <h1>{title}</h1>
-            <p>{rate}</p>
-            <h4>{price}</h4>
-            <p>{description}</p>
+            <h2>{product.title}</h2>
+            <p className="rate"><span><FaStar/></span>{product.rating.rate}</p>
+            <h4>${product.price}</h4>
+            <p>{product.description}</p>
 
             <ButtonsCart/>
         </div>
