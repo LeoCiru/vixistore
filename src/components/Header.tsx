@@ -1,4 +1,5 @@
 import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -8,8 +9,8 @@ function Header() {
                 <h2>Vixi Store</h2>
                 
                 <ul>
-                    <li><a href="/">Inicio</a></li>
-                    <li><a href="#">Administrar</a></li>
+                    <li><Link to={"/"}>Inicio</Link></li>
+                    <li><Link to={"/admin"}>Administrar</Link></li>
                 </ul>
             </div>
 
