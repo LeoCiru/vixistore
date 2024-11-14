@@ -121,7 +121,7 @@ function PageAdmin() {
     <div className='admin-container'>
       <h1>Administrar productos</h1>
 
-      // Formulario para agregar/editar productos
+      {/* Formulario para agregar/editar productos */}
       <form>
         <h2>{isEditing ? 'Editar Producto' : 'Agregar Producto'}</h2>
 

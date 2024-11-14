@@ -87,7 +87,7 @@ function ProductCard() {
         <h1>Bienvenido a nuestra tienda</h1>
         <div className="main-products-content">
             <div>
-                // Dropdown para seleccionar la categoría
+                {/* Dropdown para seleccionar la categoría */}
                 <div>
                     <h2>Filtros</h2>
                     <select
@@ -98,7 +98,7 @@ function ProductCard() {
                             }
                         }
                     >
-                        // Agregando opciones al Select desde el endpoint
+                        {/* Agregando opciones al Select desde el endpoint */}
                         {categories.map((category) => (
                                 <option key={category} value={category}>
                                     {category === 'all' ? 'Todas las Categorías' : titleCase(category)}
@@ -107,7 +107,7 @@ function ProductCard() {
                         }
                     </select>
 
-                    // Dropdown para seleccionar el tipo de orden
+                    {/* Dropdown para seleccionar el tipo de orden */}
                     <div className="order">
                         <h2>Ordenar</h2>
                         <select
@@ -121,7 +121,7 @@ function ProductCard() {
                 </div>
             </div>
             
-            // Mostrar los productos 
+            {/* Mostrar los productos */} 
             <div className="cards-container">
                 {paginatedProducts.map(product => (
                             <div
@@ -151,7 +151,7 @@ function ProductCard() {
             </div>  
         </div>
 
-        // Navegación de paginación
+        {/* Navegación de paginación */}
         <div className="pagination">
             <button
                 onClick={() => changePage(currentPage - 1)}

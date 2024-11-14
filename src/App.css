@@ -96,6 +96,9 @@ main .filter-card .filter-items .filter-item input[type="checkbox"] {
 }
 
 /* Main content */
+main .main-content {
+  margin-top: 50px;
+}
 
 main .main-content .main-products-content {
   display: flex;
