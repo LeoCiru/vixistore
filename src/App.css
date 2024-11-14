@@ -104,6 +104,10 @@ main .main-content .main-products-content {
   justify-content: space-between;
 }
 
+main .main-content .main-products-content .order {
+  margin-top: 20px;
+}
+
 main .main-content .main-products-content .cards-container {
   width: 100%;
   height: fit-content;

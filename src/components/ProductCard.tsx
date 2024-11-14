@@ -23,26 +23,43 @@ function ProductCard() {
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState<number>(1);
     const productsPerPage = 10;
+    // Estado para el ordenamiento
+    const [order, setOrder] = useState<string>('desc');
 
+    //Llamar los datos de los respectivos endpoints y retornar su data.
     useEffect(() => {
         async function fetchProducts() {
             try {
-                const response = await fetch("https://fakestoreapi.com/products");
+                // Construir la URL para incluir la categoría y el tipo de ordenamiento
+                let url = `https://fakestoreapi.com/products`;
+                if (selectedCategory !== 'all' || selectedCategory === 'all') {
+                    url = `https://fakestoreapi.com/products/?sort=${order}`;
+                }
+                const response = await fetch(url);
                 const data = await response.json();
-
                 setProducts(data);
-
-                //Crea un arreglo con las categorías obtenidas del endpoint de categorías.
-                const responseCategories = await fetch("https://fakestoreapi.com/products/categories")
-                const dataCategories = await responseCategories.json();
-                const uniqueCategories = dataCategories;
-                setCategories(['all', ...uniqueCategories]);
             } catch (error) {
                 console.log(error)
             }
         }
 
         fetchProducts();
+    }, [selectedCategory, order])
+
+    useEffect(() => {
+        async function fetchCategories() {
+            try {
+                //Crea un arreglo con las categorías obtenidas del endpoint de categorías.
+                const responseCategories = await fetch("https://fakestoreapi.com/products/categories")
+                const dataCategories = await responseCategories.json();
+                const uniqueCategories = dataCategories;
+                setCategories(['all', ...uniqueCategories]);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+
+        fetchCategories();
     }, [])
 
   //Filtrar los productos según la categoría seleccionada
@@ -74,7 +91,6 @@ function ProductCard() {
                             setSelectedCategory(e.target.value);
                             setCurrentPage(1);
                         }}
-            
                     >
                         {categories.map((category) => (
                                 <option key={category} value={category}>
@@ -83,6 +99,18 @@ function ProductCard() {
                             ))
                         }
                     </select>
+
+                    {/* Dropdown para seleccionar el tipo de orden */}
+                    <div className="order">
+                        <h2>Ordenar</h2>
+                        <select
+                        value={order}
+                        onChange={(e) => setOrder(e.target.value)}
+                        >
+                        <option value="desc">Más recientes</option>
+                        <option value="asc">Más antiguos</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             
@@ -94,7 +122,7 @@ function ProductCard() {
                                     <h4>{product.title}</h4>
                                 </div>
                 
-                                    <img src={product.image} alt={`Imagen de ${product.title}`} />
+                                <img src={product.image} alt={`Imagen de ${product.title}`} />
                 
                                 <div className="second-card-info">
                                     <small className="category">{titleCase(product.category)}</small>
