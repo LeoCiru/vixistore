@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { FaStar, FaArrowLeft } from "react-icons/fa";
 
 function ItemDetail() {
-  const { id } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>(); // Hook para tomar el id referenciado por parámetro en la url de las Routes
   const [product, setProduct] = useState<ProductDetail | null>(null);
   const navigate = useNavigate();
 
@@ -51,4 +51,4 @@ function ItemDetail() {
   )
 }
 
-export default ItemDetail
+export default ItemDetail;

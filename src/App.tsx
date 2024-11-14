@@ -1,9 +1,8 @@
-import './App.css'
-/* import Filter from './components/Filter' */
-import Header from './components/Header'
-import ProductCard from './components/ProductCard'
+import './App.css';
+import Header from './components/Header';
+import ProductCard from './components/ProductCard';
 import PageAdmin from './pages/PageAdmin';
-import PageItemDetail from './pages/PageItemDetail'
+import PageItemDetail from './pages/PageItemDetail';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {

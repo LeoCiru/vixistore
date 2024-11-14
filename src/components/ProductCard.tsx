@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 function ProductCard() {
 
-    //Para pasar al estado inicial de los products.
+    // Para pasar al estado inicial de los products
     const initialState: Products[] = [{
         id: '',
         title: '',
@@ -17,18 +17,17 @@ function ProductCard() {
             rate: 0
         },
         price: 0
-    }]
+    }];
 
     const [products, setProducts] = useState<Products[]>(initialState);
     const [categories, setCategories] = useState<string[]>([]);
     const [selectedCategory, setSelectedCategory] = useState<string>('all');
     const [currentPage, setCurrentPage] = useState<number>(1);
     const productsPerPage = 10;
-    // Estado para el ordenamiento
     const [order, setOrder] = useState<string>('desc');
     const navigate = useNavigate();
 
-    //Llamar los datos de los respectivos endpoints y retornar su data.
+    // Llamar los datos de los respectivos endpoints y retornar su data
     useEffect(() => {
         async function fetchProducts() {
             try {
@@ -41,18 +40,18 @@ function ProductCard() {
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {
-                console.log(error)
+                console.log(error);
             }
         }
 
         fetchProducts();
-    }, [selectedCategory, order])
+    }, [selectedCategory, order]);
 
     useEffect(() => {
         async function fetchCategories() {
             try {
-                //Crea un arreglo con las categorías obtenidas del endpoint de categorías.
-                const responseCategories = await fetch("https://fakestoreapi.com/products/categories")
+                // Crea un arreglo con las categorías obtenidas del endpoint de categorías
+                const responseCategories = await fetch("https://fakestoreapi.com/products/categories");
                 const dataCategories = await responseCategories.json();
                 const uniqueCategories = dataCategories;
                 setCategories(['all', ...uniqueCategories]);
@@ -64,7 +63,7 @@ function ProductCard() {
         fetchCategories();
     }, [])
 
-  //Filtrar los productos según la categoría seleccionada
+  // Filtrar los productos según la categoría seleccionada
   const filteredProducts = selectedCategory === 'all' ? products : products.filter((product) => product.category === selectedCategory);
 
   // Calcular el número de páginas
@@ -88,16 +87,18 @@ function ProductCard() {
         <h1>Bienvenido a nuestra tienda</h1>
         <div className="main-products-content">
             <div>
-                {/* Dropdown para seleccionar la categoría */}
+                // Dropdown para seleccionar la categoría
                 <div>
                     <h2>Filtros</h2>
                     <select
                         value={selectedCategory}
                         onChange={(e) => {
-                            setSelectedCategory(e.target.value);
-                            setCurrentPage(1);
-                        }}
+                                setSelectedCategory(e.target.value);
+                                setCurrentPage(1);
+                            }
+                        }
                     >
+                        // Agregando opciones al Select desde el endpoint
                         {categories.map((category) => (
                                 <option key={category} value={category}>
                                     {category === 'all' ? 'Todas las Categorías' : titleCase(category)}
@@ -106,7 +107,7 @@ function ProductCard() {
                         }
                     </select>
 
-                    {/* Dropdown para seleccionar el tipo de orden */}
+                    // Dropdown para seleccionar el tipo de orden
                     <div className="order">
                         <h2>Ordenar</h2>
                         <select
@@ -120,7 +121,7 @@ function ProductCard() {
                 </div>
             </div>
             
-            {/* Mostrar los productos */}
+            // Mostrar los productos 
             <div className="cards-container">
                 {paginatedProducts.map(product => (
                             <div
@@ -150,7 +151,7 @@ function ProductCard() {
             </div>  
         </div>
 
-        {/* Navegación de Paginación */}
+        // Navegación de paginación
         <div className="pagination">
             <button
                 onClick={() => changePage(currentPage - 1)}
