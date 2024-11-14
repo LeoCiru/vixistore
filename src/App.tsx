@@ -2,7 +2,7 @@ import './App.css'
 /* import Filter from './components/Filter' */
 import Header from './components/Header'
 import ProductCard from './components/ProductCard'
-import ItemDetail from './pages/ItemDetail'
+import PageItemDetail from './pages/PageItemDetail'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         <Router>
           <Routes>
           <Route path="/" element={<ProductCard />} />
-          <Route path="/product/:id" element={<ItemDetail />} />
+          <Route path="/product/:id" element={<PageItemDetail />} />
           </Routes>
         </Router>
       </div>
