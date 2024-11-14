@@ -168,7 +168,7 @@ main .main-content .product-card .rate span {
   color: rgb(255, 221, 0);
 }
 
-main .main-content .product-card .cart-buttons {
+.cart-buttons {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -176,7 +176,8 @@ main .main-content .product-card .cart-buttons {
   row-gap: 10px;
 }
 
-main .main-content .product-card .cart-buttons :is(.add-cart, .add-wishlist) {
+/* Cart-buttons */
+.cart-buttons :is(.add-cart, .add-wishlist) {
   width: 100%;
   background: none;
   border: none;
@@ -192,12 +193,12 @@ main .main-content .product-card .cart-buttons :is(.add-cart, .add-wishlist) {
   transition: all .3s ease-in-out;
 }
 
-main .main-content .product-card .cart-buttons .add-cart {
+.cart-buttons .add-cart {
   background-color: #000000;
   color: #fff;
 }
 
-main .main-content .product-card .cart-buttons .add-wishlist {
+.cart-buttons .add-wishlist {
   background-color: #ffffff;
   color: #000;
   border: 2px solid #000;

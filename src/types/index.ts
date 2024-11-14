@@ -10,3 +10,7 @@ export type Products = {
     },
     price: number
 }
+
+export type ProductDetail = Omit<Products, 'category' | 'id'> & {
+    description: string
+}

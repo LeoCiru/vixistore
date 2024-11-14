@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { Products } from "../types";
 import { titleCase } from "../helpers";
-import { FaShoppingCart, FaRegHeart } from "react-icons/fa";
+import ButtonsCart from "./ButtonsCart";
 
 function ProductCard() {
 
@@ -132,21 +132,7 @@ function ProductCard() {
                                     <p>Precio: ${product.price}</p>
                                 </div>
                 
-                                <div className="cart-buttons">
-                                    <button className="add-cart">
-                                        <div>
-                                            <FaShoppingCart/>
-                                        </div>
-                                        <span>Añadir al carrito</span>
-                                    </button>
-                
-                                    <button className="add-wishlist">
-                                        <div>
-                                            <FaRegHeart/>
-                                        </div>
-                                        <span>Añadir a wishlist</span>
-                                    </button>
-                                </div>
+                                <ButtonsCart/>
                             </div>
                         )
                     )
