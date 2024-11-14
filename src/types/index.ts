@@ -17,7 +17,7 @@ export type ProductDetail = Products & {
 }
 
 export type ProductForm = {
-    id: number,
+    id: number
     title: string,
     price: number,
     description: string,
