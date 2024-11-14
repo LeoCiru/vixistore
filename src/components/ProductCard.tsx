@@ -161,7 +161,11 @@ function ProductCard() {
             {Array.from({ length: totalPages }, (_, index) => index + 1).map((pageNumber) => (
                         <button
                             key={pageNumber}
-                            onClick={() => changePage(pageNumber)}
+                            onClick={() => {
+                                    changePage(pageNumber);
+                                    window.scrollTo(0, 0);
+                                }
+                            }
                             disabled={currentPage === pageNumber}
                         >
                             {pageNumber}

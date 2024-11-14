@@ -8,7 +8,7 @@ function Header() {
                 <h2>Vixi Store</h2>
                 
                 <ul>
-                    <li><a href="#">Inicio</a></li>
+                    <li><a href="/">Inicio</a></li>
                     <li><a href="#">Administrar</a></li>
                 </ul>
             </div>

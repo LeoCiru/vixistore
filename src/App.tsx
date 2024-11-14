@@ -16,8 +16,6 @@ function App() {
       <h1>Bienvenido a nuestra tienda</h1>
 
       <div className='main-content'>
-        {/* <Filter/> */}
-        {/* <ProductCard/> */}
         <Router>
           <Routes>
           <Route path="/" element={<ProductCard />} />
