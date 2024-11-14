@@ -1,12 +1,13 @@
 import ButtonsCart from "../components/ButtonsCart";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ProductDetail } from "../types";
 import { useState, useEffect } from "react";
-import { FaStar } from "react-icons/fa";
+import { FaStar, FaArrowLeft } from "react-icons/fa";
 
 function ItemDetail() {
   const { id } = useParams<{ id: string }>();
   const [product, setProduct] = useState<ProductDetail | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchProducto = async () => {
@@ -25,20 +26,28 @@ function ItemDetail() {
   if (!product) return <div>Cargando producto...</div>;
   
   return (
-    <div className="product-detail">
-        <div className="product-image">
-            <img src={product.image} alt={product.title} />
-        </div>
-
-        <div className="content-details">
-            <h2>{product.title}</h2>
-            <p className="rate"><span><FaStar/></span>{product.rating.rate}</p>
-            <h4>${product.price}</h4>
-            <p>{product.description}</p>
-
-            <ButtonsCart/>
-        </div>
-    </div>
+    <>
+      <div className="home-button">
+        <button onClick={() => navigate("/")}>
+          <FaArrowLeft /> Regresar
+        </button>
+      </div>
+      
+      <div className="product-detail">
+          <div className="product-image">
+              <img src={product.image} alt={product.title} />
+          </div>
+      
+          <div className="content-details">
+              <h2>{product.title}</h2>
+              <p className="rate"><span><FaStar/></span>{product.rating.rate}</p>
+              <h4>${product.price}</h4>
+              <p>{product.description}</p>
+      
+              <ButtonsCart/>
+          </div>
+      </div>
+    </>
   )
 }
 

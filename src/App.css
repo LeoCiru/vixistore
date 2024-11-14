@@ -232,6 +232,23 @@ main .main-content .pagination button {
 }
 
 /* Product-detail */
+.home-button button {
+  background: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #000;
+  border: 2px solid transparent;
+  color: #fff;
+  transition: all .2s ease-in-out;
+
+  &:hover {
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #000;
+  }
+}
+
 .product-detail {
   display: flex;
   justify-content: space-around;
