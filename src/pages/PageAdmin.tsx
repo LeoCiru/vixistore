@@ -111,7 +111,10 @@ function PageAdmin() {
   const handleDeleteProduct = async (id: number) => {
     try {
       await fetch(`https://fakestoreapi.com/products/${id}`, { method: 'DELETE' });
-      setProducts(products.filter((product) => product.id !== id));
+      if (confirm("¿Sí?")) {
+        setProducts(products.filter((product) => product.id !== id));
+        return;
+      }
     } catch (error) {
       console.error('Error al eliminar producto:', error);
     }
@@ -152,7 +155,7 @@ function PageAdmin() {
           onChange={handleChange}
         />
 
-        <label htmlFor="image">Imagen:</label>
+        <label htmlFor="image">URL imagen:</label>
         <input
           type="text"
           name="image"
@@ -201,7 +204,7 @@ function PageAdmin() {
               <tr key={product.id}>
                 <td>{product.title}</td>
                 <td>${product.price}</td>
-                <td className='description'>{product.description}</td>
+                <td className='description'>{product.description.substring(0, 150)}</td>
                 <td>{product.image}</td>
                 <td>{product.category}</td>
                 <td>
