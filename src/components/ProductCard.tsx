@@ -175,7 +175,11 @@ function ProductCard() {
             }
 
             <button
-                onClick={() => changePage(currentPage + 1)}
+                onClick={() => {
+                        changePage(currentPage + 1);
+                        window.scrollTo(0, 0);
+                    }
+                }
                 disabled={currentPage === totalPages}
             >
                 Siguiente
