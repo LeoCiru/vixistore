@@ -293,3 +293,86 @@ main .main-content .pagination button {
   font-size: 1.5rem;
   text-decoration: underline;
 }
+
+/* ADMIN PAGE */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100vh;
+}
+
+form .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 50%;
+}
+
+form .inputs input {
+  padding: 10px;
+  border: 2px solid #a8a7a7;
+  border-radius: 5px;
+}
+
+form .inputs label {
+  font-weight: 600;
+}
+
+form .buttons {
+  margin-top: 20px;
+  width: 50%;
+  display: flex;
+  column-gap: 20px;
+  /* justify-content: space-around; */
+}
+
+form .buttons button {
+  background: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: #fff;
+  border: 2px solid transparent;
+  transition: all .2s ease;
+}
+
+form .buttons button.add {
+  background-color: #5398ed;
+
+  &:hover {
+    background-color: #fff;
+    color: #5398ed;
+    border: 2px solid #5398ed;
+  }
+}
+
+form .buttons button.edit {
+  background-color: #757575;
+
+  &:hover {
+    background-color: #fff;
+    color: #757575;
+    border: 2px solid #757575;
+  }
+}
+
+form .buttons button.delete {
+  background-color: #b52d2d;
+
+  &:hover {
+    background-color: #fff;
+    color: #b52d2d;
+    border: 2px solid #b52d2d;
+  }
+}
+
+/* Error */
+
+.error {
+  padding: 15px;
+  background-color: #b52d2d;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}

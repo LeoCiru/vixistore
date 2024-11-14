@@ -12,9 +12,6 @@ function App() {
   return (
     <main>
       <Header/>
-      <hr />
-
-      <h1>Bienvenido a nuestra tienda</h1>
 
       <div className='main-content'>
           <Routes>

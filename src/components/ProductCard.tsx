@@ -85,6 +85,7 @@ function ProductCard() {
 
   return (
     <>
+        <h1>Bienvenido a nuestra tienda</h1>
         <div className="main-products-content">
             <div>
                 {/* Dropdown para seleccionar la categoría */}

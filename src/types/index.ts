@@ -16,15 +16,11 @@ export type ProductDetail = Products & {
     count?: number;
 }
 
-/* export type ProductDetail = {
+export type ProductForm = {
     id: number,
     title: string,
+    price: number,
+    description: string,
     image: string,
     category: string,
-    rating: {
-        rate: number,
-        count?: number
-    },
-    price: number,
-    description: string
-} */
+}
