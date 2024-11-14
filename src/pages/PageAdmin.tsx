@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { ProductForm } from '../types';
+import { titleCase } from '../helpers';
 
 
 function PageAdmin() {
@@ -111,7 +112,7 @@ function PageAdmin() {
   const handleDeleteProduct = async (id: number) => {
     try {
       await fetch(`https://fakestoreapi.com/products/${id}`, { method: 'DELETE' });
-      if (confirm("¿Sí?")) {
+      if (confirm("¿Confirmas eliminar este elemento?")) {
         setProducts(products.filter((product) => product.id !== id));
         return;
       }
@@ -206,7 +207,7 @@ function PageAdmin() {
                 <td>${product.price}</td>
                 <td className='description'>{product.description.substring(0, 150)}</td>
                 <td>{product.image}</td>
-                <td>{product.category}</td>
+                <td>{titleCase(product.category)}</td>
                 <td>
                   <div className='table-buttons'>
                     <button
